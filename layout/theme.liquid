@@ -129,8 +129,32 @@
       {{ "accessibility.skip_to_text" | t }}
     </a>
 
+
     {% section 'announcement-bar' %}
     {% section 'header' %}
+
+    <div class="side-cart-overly" id="sideCartOverlay">
+      <div class="side-cart"> 
+        <div class="side-cart_header">
+          <h3 class="side-cart_title">
+            {{ "sections.cart.title" | t}}
+          </h3>
+          <button 
+            type="button"
+            class="side-cart_close-button js-close-side-cart"
+            aria-label="{{ 'accessibility.close' | t}} " 
+            id="sideCartCloseButton"
+          >
+            X
+          </button>
+        </div >
+
+        <div id="side-cart_content">
+          {% section 'side-cart' %}
+        </div>
+      </div>
+    </div>
+
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
@@ -168,5 +192,6 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    <script src="{{ 'main.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
